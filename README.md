@@ -66,11 +66,12 @@ rive.setNumberStateAtPath("type", 1, "streak-2");
 ## Actual Behavior
 
 - Under slower network conditions, streaks initialized with `revealed: false` appear as if `revealed: true`
-- Suggests state initialization might be happening before the Rive runtime is fully ready
+- Despite having a "ready" event handler, the state initialization happens in a separate effect when the `rive` object becomes available
+- This suggests the `rive` object might be available before the runtime is fully initialized
 
 ## Possible Solutions to Investigate
 
-1. Wait for an explicit "ready" event before initializing states
+1. Move the state initialization into the "ready" event handler instead of a separate effect
 2. Add a delay before state initialization
 3. Implement retry logic for state initialization
 4. Consider moving initial states to the Rive file itself
@@ -81,3 +82,9 @@ rive.setNumberStateAtPath("type", 1, "streak-2");
 - Network: Issue reproduces on Fast 4G or slower
 - React: 18.3.1
 - Rive React Canvas: ^4.17.5
+
+Without Throttling:
+![alt text](image-1.png)
+
+With Throttling:
+![alt text](image-1.png)

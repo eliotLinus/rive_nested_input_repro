@@ -70,6 +70,7 @@ export const RiveDemo = () => {
       typeof eventData === "object" &&
       "name" in eventData
     ) {
+      console.log("event received", eventData.name);
       const stateMachineInputs = rive.stateMachineInputs("default");
 
       if (eventData.name === "ready") {
@@ -93,6 +94,7 @@ export const RiveDemo = () => {
 
   useEffect(() => {
     if (rive) {
+      console.log("initialize");
       initialize(rive);
       setReady(true);
     }
@@ -100,6 +102,7 @@ export const RiveDemo = () => {
 
   useEffect(() => {
     if (ready) {
+      console.log("setting event handler.");
       rive?.on(EventType.RiveEvent, (riveEvent) => {
         onRiveEventReceived(riveEvent);
       });

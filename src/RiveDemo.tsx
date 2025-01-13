@@ -11,42 +11,42 @@ import { useEffect, useState } from "react";
 
 const initialize = (rive: Rive) => {
   // streak-0: Not revealed, not completed
-  rive.setTextRunValueAtPath("day", "Mon", "streak-0");
+  rive.setTextRunValueAtPath("day", "Thur", "streak-0");
   rive.setBooleanStateAtPath("revealed", false, "streak-0");
   rive.setNumberStateAtPath("type", 0, "streak-0");
 
   // streak-1: Not revealed, not completed
-  rive.setTextRunValueAtPath("day", "Tue", "streak-1");
+  rive.setTextRunValueAtPath("day", "Fri", "streak-1");
   rive.setBooleanStateAtPath("revealed", false, "streak-1");
   rive.setNumberStateAtPath("type", 0, "streak-1");
 
   // streak-2: Revealed and completed
-  rive.setTextRunValueAtPath("day", "Wed", "streak-2");
+  rive.setTextRunValueAtPath("day", "Sat", "streak-2");
   rive.setBooleanStateAtPath("revealed", true, "streak-2");
   rive.setNumberStateAtPath("type", 1, "streak-2");
 
   // streak-3: Revealed but not completed
-  rive.setTextRunValueAtPath("day", "Thu", "streak-3");
+  rive.setTextRunValueAtPath("day", "Sun", "streak-3");
   rive.setBooleanStateAtPath("revealed", true, "streak-3");
   rive.setNumberStateAtPath("type", 0, "streak-3");
 
   // streak-4: Not revealed but completed
-  rive.setTextRunValueAtPath("day", "Fri", "streak-4");
+  rive.setTextRunValueAtPath("day", "Mon", "streak-4");
   rive.setBooleanStateAtPath("revealed", false, "streak-4");
   rive.setNumberStateAtPath("type", 1, "streak-4");
 
   // streak-5: Not revealed, not completed
-  rive.setTextRunValueAtPath("day", "Sat", "streak-5");
+  rive.setTextRunValueAtPath("day", "Tue", "streak-5");
   rive.setBooleanStateAtPath("revealed", false, "streak-5");
   rive.setNumberStateAtPath("type", 0, "streak-5");
 
   // streak-6: Not revealed, not completed
-  rive.setTextRunValueAtPath("day", "Sun", "streak-6");
+  rive.setTextRunValueAtPath("day", "Wed", "streak-6");
   rive.setBooleanStateAtPath("revealed", false, "streak-6");
   rive.setNumberStateAtPath("type", 0, "streak-6");
 
   // streak-7: Not revealed, not completed
-  rive.setTextRunValueAtPath("day", "Mon", "streak-7");
+  rive.setTextRunValueAtPath("day", "Thur", "streak-7");
   rive.setBooleanStateAtPath("revealed", false, "streak-7");
   rive.setNumberStateAtPath("type", 0, "streak-7");
 };
@@ -77,9 +77,7 @@ export const RiveDemo = () => {
         const revealInput2 = stateMachineInputs.find(
           (i) => i.name === "reveal"
         );
-        setTimeout(() => {
-          revealInput2?.fire();
-        }, 1000);
+        revealInput2?.fire();
       }
       if (eventData.name === "reveal-end") {
         const advanceInput = stateMachineInputs.find(

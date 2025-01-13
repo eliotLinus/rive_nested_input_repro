@@ -83,8 +83,14 @@ rive.setNumberStateAtPath("type", 1, "streak-2");
 - React: 18.3.1
 - Rive React Canvas: ^4.17.5
 
-Without Throttling:
-![alt text](image-1.png)
+## Visual Demonstration
 
-With Throttling:
-![alt text](image-1.png)
+### Without Network Throttling
+
+Expected behavior - empty circles remain empty:
+![Without Throttling](image-1.png)
+
+### With Network Throttling (Fast 4G)
+
+Bug reproduction - empty circles appear filled:
+![With Throttling](image-2.png)
